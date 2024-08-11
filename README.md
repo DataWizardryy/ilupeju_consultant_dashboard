@@ -31,23 +31,24 @@ To run this project locally, follow these steps:
    ```bash
    git clone https://github.com/DataWizardryy/ilupeju_consultant_dashboard.git
 
-2 **Navigate to the project directory:**
+2. **Navigate to the project directory:**
 
-```bash
+   ```bash
 
-cd consultant-revenue-dashboard
+   cd consultant-revenue-dashboard
 
-3 **Install the required dependencies:**
+3. **Install the required dependencies:**
 
-```bash
-pip install -r requirements.txt
+   ```bash
+   pip install -r requirements.txt
 
-4 **Ensure the following files are present:**
+4. **Ensure the following files are present:**
 
-consultants_revenue.xlsx: The dataset containing revenue information.
-lsfrs_logo.jpeg: The logo image used in the sidebar.
-Run the Streamlit app:
+   consultants_revenue.xlsx: The dataset containing revenue information.
+   lsfrs_logo.jpeg: The logo image used in the sidebar.
+   
+5. **Run the Streamlit app:**
 
-```bash
-streamlit run app.py
-This will open the dashboard in your default web browser.
+   ```bash
+   streamlit run app.py
+   This will open the dashboard in your default web browser.
