@@ -37,34 +37,36 @@ st.markdown("""
     </h1>
 """, unsafe_allow_html=True)
 
-# Define KPIs
-total_companies = df.shape[0]
-total_complied = df[df['Status'] == 'Complied'].shape[0]
-total_revenue = df['Amount Charged'].sum()
+# Define KPIs based on selected consultant
+if selected_consultant == "Overall Analysis":
+    filtered_data = df
+else:
+    filtered_data = df[df['Consultant Name'] == selected_consultant]
 
+total_companies = filtered_data.shape[0]
+total_complied = filtered_data[filtered_data['Status'] == 'Complied'].shape[0]
+total_revenue = filtered_data['Amount Charged'].sum()
+total_complied_revenue = filtered_data[filtered_data['Status'] == 'Complied']['Amount Charged'].sum()
 
 # Standardized KPI Layout
 st.markdown("### Key Performance Indicators")
-kpi_col1, kpi_col2, kpi_col3 = st.columns(3)
+kpi_col1, kpi_col2, kpi_col3, kpi_col4 = st.columns(4)
 
 with kpi_col1:
     st.metric("Total Inspected Companies", f"{total_companies:,}")
 
 with kpi_col2:
-    st.metric("Total Amount Charged", f"₦{total_revenue:,.2f}")
+    st.metric("Total Amount Charged", f"₦{total_revenue:,}")
 
-    
 with kpi_col3:
     st.metric("Total Complied Facilities", f"{total_complied:,}")
-    
 
-
-
+with kpi_col4:
+    st.metric("Total Amount of Complied Facilities", f"₦{total_complied_revenue:,}")
 
 # Overall Analysis or Selected Consultant Analysis
-
 if selected_consultant == "Overall Analysis":
-    st.subheader("Overall Charged Analysis")
+    # st.subheader("Overall Charged Analysis")
     
     # Layout for 2 wider plots in each row with spacing
     col1, col2 = st.columns(2)
